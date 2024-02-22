@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop Acer Aspire 5",
+        "url": "https://static2-ecemea.acer.com/media/catalog/product/_/a/_aspire-5-a515-58gm-fp-bl-win11-gray_main1000_nx.kgyef.002.png?quality=80&bg-color=255,255,255&fit=bounds&height=500&width=500&canvas=500:500&format=jpeg",
+        "price": 699.99,
+        "quantity": 50,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 2,
+        "name": "Dell XPS 13",
+        "url": "https://www.ecopc.com/8768-large_default/dell-xps-13-9370-intel-core-i7-8550u-13-fhd.jpg",
+        "price": 1199.99,
+        "quantity": 30,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 3,
+        "name": "MacBook Air 13-inch",
+        "url": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664472289661",
+        "price": 999.99,
+        "quantity": 20,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 4,
+        "name": "Lenovo ThinkPad X1 Carbon",
+        "url": "https://www.notebookcheck.biz/uploads/tx_nbc2/x1_carbon_g11.jpg",
+        "price": 1499.99,
+        "quantity": 15,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 5,
+        "name": "HP Spectre x360",
+        "url": "https://www.hp.com/fr-fr/shop/Html/Merch/Images/6K9L3EA-ABF_17_1750x1285.jpg",
+        "price": 1299.99,
+        "quantity": 25,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 6,
+        "name": "Microsoft Surface Laptop 4",
+        "url": "https://gfx3.senetic.com/akeneo-catalog/4/3/7/f/437f0d81cbbc83adc6fc97020548dd83c2a93ba9_1684029_LH8_00021_image1",
+        "price": 1299.99,
+        "quantity": 20,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 7,
+        "name": "Asus ZenBook 14",
+        "url": "https://media.ldlc.com/r1600/ld/products/00/06/02/52/LD0006025288.jpg",
+        "price": 899.99,
+        "quantity": 25,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 8,
+        "name": "Razer Blade 15",
+        "url": "https://m.media-amazon.com/images/I/617y8GpMAaL.jpg",
+        "price": 1999.99,
+        "quantity": 15,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 9,
+        "name": "LG Gram 17",
+        "url": "https://laptopmedia.com/wp-content/uploads/2023/01/DZ-3-e1674810951808.jpg",
+        "price": 1499.99,
+        "quantity": 10,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    },
+    {
+        "id": 10,
+        "name": "Acer Predator Helios 300",
+        "url": "https://media.materiel.net/r900/products/MN0005725241_1_0005818769.jpg",
+        "price": 1299.99,
+        "quantity": 20,
+        "created_at": "10 décembre 2023 11:00:00",
+        "updated_at": "12 décembre 2023 11:00:00"
+    }
+]
