@@ -1,33 +1,26 @@
-
-
-
 <template>
   <main class="home-page">
     <h1>BuyPc</h1>
     <section class="home-page__actions">
-      <section v-if="products && products.length > 0" class="products-container">
-        <ProductComponent :data="products[0]" />
-      </section>
+      <ProductComponent v-if="products.length > 0" :data="products.find(product => product.id === 1)" />
       <button @click="onShopClick">All Products</button>
     </section>
   </main>
 </template>
 
-
-
-
 <script setup>
 
-
-//import 
-import ProductComponent from "../components/ProductComponent.vue";
 import { useRouter } from "vue-router";
-import { useProductStore } from "../stores/product-store";
 
+import { useProductStore } from "../utils/product-store";
 
+import ProductComponent from "../components/ProductComponent.vue";
 
 const router = useRouter();
+
 const productStore = useProductStore();
+
+const products = productStore.products;
 
 
 const onShopClick = () => {
@@ -35,15 +28,9 @@ const onShopClick = () => {
   router.push("/shop");
 };
 
-
-const products = productStore.productsGetter;
 </script>
 
-
-
-
-
-<style scoped lang ="scss">
+<style scoped lang="scss">
 .home-page h1 {
   width: 100%;
   margin: auto;
@@ -52,13 +39,10 @@ const products = productStore.productsGetter;
 }
 
 .home-page__actions {
-
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-
-
 
 button {
   margin: 50px auto;
@@ -66,7 +50,8 @@ button {
 
 .product_card_component {
   border-radius: 20px;
-  border: solid rgb(101, 5, 255);
+  border: solid rgb(183, 179, 189);
+  padding: 19px;
   width: 33%;
   margin: auto;
   margin-top: auto;
@@ -77,7 +62,6 @@ button {
 }
 
 .name {
-
   h1 {
     margin-top: 10px !important;
   }

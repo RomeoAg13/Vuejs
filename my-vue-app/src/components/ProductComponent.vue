@@ -16,7 +16,7 @@
 
 
 <script setup>
-import { addToCart } from '../stores/cart-store'
+import { addToCart } from '../utils/cart'
 defineProps({
     data: Object
 })

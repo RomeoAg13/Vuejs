@@ -24,7 +24,7 @@
 <script setup>
 
 
-import { removeFromCart, addToCart } from "../stores/cart-store"
+import { removeFromCart, addToCart } from "../utils/cart"
 
 
 defineProps({

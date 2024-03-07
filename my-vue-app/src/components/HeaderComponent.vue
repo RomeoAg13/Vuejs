@@ -12,13 +12,15 @@
                 </li>
                 <li>
                     <a text="Cart" @click="onCartClick" />
-                    <small class="cart-length-icon" v-if="cartGetter.length">{{
-                        cartGetter.length
-                    }}</small>
+                    <small class="cart-length-icon" v-if="cartLength() > 0">{{ cartLength() }}</small>
                 </li>
 
                 <li>
                     <a text="Login" @click="onLoginClick" />
+                </li>
+
+                <li>
+                    <a text="Sign-Up" @click="onSignUpClick" />
                 </li>
             </ul>
         </nav>
@@ -28,7 +30,7 @@
 
 
 <script setup>
-import { cartGetter } from "../stores/cart-store";
+import { cartGetter, cartLength } from "../utils/cart";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -47,6 +49,10 @@ const onLoginClick = () => {
     router.push("/Login");
 }
 
+const onSignUpClick = () => {
+    console.log("onSignUpClick");
+    router.push("/SignUp");
+}
 </script>
 
 

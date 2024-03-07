@@ -14,7 +14,8 @@ import ShopPage from './pages/ShopPage.vue'
 import CartPage from './pages/CartPage.vue'
 import HomePage from './pages/HomePage.vue'
 import LoginPage from './pages/LoginPage.vue'
-
+import SignUpPage from './pages/SignUpPage.vue'
+import NotFoundPage from './pages/NotFoundPage.vue'
 
 const routes=[
     { 
@@ -38,6 +39,15 @@ const routes=[
         path:'/login',
         name:'login',
         component:LoginPage,
+    },
+    {
+        path:'/SignUp',
+        name:'SignUp',
+        component:SignUpPage,
+    },
+    {
+        path:'/:pathMatch(.*)*',
+        component: NotFoundPage,
     }
 ]
 

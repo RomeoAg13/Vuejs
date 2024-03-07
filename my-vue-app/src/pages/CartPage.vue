@@ -1,11 +1,13 @@
+User
 <template>
     <main class="shop">
         <div class="shop-page">
             <h1>Your Cart : </h1>
         </div>
-        <CartItemComponent v-for="(item, index) in cartGetter" :key="index" :cart-item="item" />
+        <CartItemComponent v-for="(item, index) in cartItems" :key="index" :cart-item="item" />
+        <h1>Total : $ {{ cartPrice() }}</h1>
     </main>
-    <section v-if="!cartGetter.length" class="cart-page__no-items">
+    <section v-if="!cartItems.length" class="cart-page__no-items">
         <p>You don't have any products</p>
         <router-link to="/shop">
             Our Products !
@@ -15,9 +17,11 @@
 
 
 <script setup>
-import { cartGetter } from "../stores/cart-store";
+import { cartGetter } from "../utils/cart";
+import { cartPrice } from "../utils/cart";
 import CartItemComponent from '../components/CartItemComponent.vue';
 
+const cartItems = cartGetter();
 </script>
 
 <style>

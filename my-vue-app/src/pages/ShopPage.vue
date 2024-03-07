@@ -1,6 +1,3 @@
-
-
-
 <template>
     <main class="shop">
         <div class="shop-page">
@@ -20,18 +17,17 @@
 
 import { onMounted, onUnmounted } from "vue";
 import ProductComponent from "../components/ProductComponent.vue";
-import { setNewMessage, setContent } from "../stores/message-store";
+import { setNewMessage, setContent } from "../utils/message-store";
 import { useRouter } from "vue-router";
-import { useProductStore } from "../stores/product-store";
-
-
+import { useProductStore } from "../utils/product-store";
 
 const router = useRouter();
-
 const productStore = useProductStore();
-
-const products = productStore.productsGetter;
+const products = productStore.products;
 let timer = null;
+
+
+
 onMounted(() => {
     console.log('Shop Page has mounted')
     setNewMessage({ title: 'Shop Page : ', type: 'positive', content: 'Here our Shop ! Enjoy !!' })
