@@ -13,36 +13,22 @@
 
 
 <script setup>
-
-
-import { onMounted, onUnmounted } from "vue";
 import ProductComponent from "../components/ProductComponent.vue";
-import { setNewMessage, setContent } from "../utils/message-store";
 import { useRouter } from "vue-router";
 import { useProductStore } from "../utils/product-store";
-
+import { onMounted, onUnmounted } from "vue";
 const router = useRouter();
 const productStore = useProductStore();
 const products = productStore.products;
 let timer = null;
+onMounted(() => { // quand c'est ajoute dans le dom
+    console.log('Shop Page has mounted');
+});
 
-
-
-onMounted(() => {
-    console.log('Shop Page has mounted')
-    setNewMessage({ title: 'Shop Page : ', type: 'positive', content: 'Here our Shop ! Enjoy !!' })
-    timer = setTimeout(() => {
-        setContent('');
-    }, 3000)
-})
-
-onUnmounted(() => {
-    setNewMessage({ title: '', type: '', content: '' })
-    clearTimeout(timer);
-})
-
+onUnmounted(() => { // quand c'est retire du dom
+    console.log('Shop Page is unmounted');
+});
 </script>
-
 
 
 <style>

@@ -17,11 +17,13 @@
 
 <script setup>
 import { addToCart } from '../utils/cart'
+
+// define les props que l'on souhaite
 defineProps({
-    data: Object
+    data: Object // object qui contient les donnees du produit
 })
 
-
+// add to le cart
 const onAddCartClick = (product) => {
     console.log('item added');
     addToCart(product);

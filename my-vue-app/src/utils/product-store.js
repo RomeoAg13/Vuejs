@@ -1,3 +1,6 @@
+// fonction qui permet de prendre les infos depuis le json
+
+
 import { ref, onBeforeMount } from "vue";
 
 export const useProductStore = () => {

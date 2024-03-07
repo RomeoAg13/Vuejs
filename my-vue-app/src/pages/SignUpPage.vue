@@ -1,26 +1,54 @@
 <template>
-    <div id="app" class="signup-container">
-        <h2>Sign up</h2>
-        <form class="signup-form">
+    <div id="app" class="register-container">
+        <h2>Register</h2>
+        <form class="register-form" @submit.prevent="register">
             <div class="inputText">
                 <input type="text" v-model="email" placeholder="Email" required>
             </div>
             <div class="inputText">
-                <input type="password" v-model="password" placeholder="Password with 6 characters" required>
+                <input type="password" v-model="password" placeholder="Password" required>
             </div>
-            <button type="submit">Signup</button>
+            <button type="submit">Register</button>
         </form>
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     </div>
 </template>
 
+<script>
+import { ref } from 'vue';
+import { auth } from '../utils/firebase';
+import { useRouter } from "vue-router";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+
+export default {
+    setup() {
+        const email = ref(""); // ref pour stocker l'email
+        const password = ref(""); // ref pour stocker le pwd
+        const errorMessage = ref(""); // ref pour le message
+        const router = useRouter();
+
+        // inscription
+        const register = () => {
+            // creer user avec email et pwd
+            createUserWithEmailAndPassword(auth, email.value, password.value)
+                .then(() => {
+                    console.log("Register Success!!");
+                    router.push('/login'); // envoyer vers le login une fois que le register est bon
+                })
+                .catch((error) => {
+                    console.error(error.code); // sinon dans la console affichage des erreurs
+                    errorMessage.value = error.message; // affichage des erreurs 
+                });
+        };
 
 
-
-
+        return { email, password, errorMessage, register };
+    }
+};
+</script>
 
 <style>
-.signup-container {
+.register-container {
     width: 25%;
     padding: 20px;
     border: 1px solid #ccc;
@@ -31,7 +59,9 @@
     margin-top: 150px;
 }
 
-.signup-container h2 {
+
+
+.register-container h2 {
     margin-bottom: 20px;
     text-align: center;
 }
@@ -41,7 +71,7 @@
     justify-content: center;
 }
 
-.signup-form input {
+.register-form input {
     width: 60%;
     padding: 10px;
     margin-bottom: 10px;
@@ -49,7 +79,7 @@
     border-radius: 5px;
 }
 
-.signup-form button {
+.register-form button {
     width: 20%;
     padding: 10px;
     border: none;
@@ -62,7 +92,7 @@
     justify-content: center;
 }
 
-.signup-form button:hover {
+.register-form button:hover {
     background-color: #0056b3;
 }
 

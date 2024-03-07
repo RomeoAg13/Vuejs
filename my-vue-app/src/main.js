@@ -14,8 +14,8 @@ import ShopPage from './pages/ShopPage.vue'
 import CartPage from './pages/CartPage.vue'
 import HomePage from './pages/HomePage.vue'
 import LoginPage from './pages/LoginPage.vue'
-import SignUpPage from './pages/SignUpPage.vue'
 import NotFoundPage from './pages/NotFoundPage.vue'
+import SignUpPage from './pages/SignUpPage.vue'
 
 const routes=[
     { 

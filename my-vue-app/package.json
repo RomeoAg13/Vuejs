@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth0/auth0-vue": "^2.3.3",
+    "firebase": "^10.8.1",
     "harlem": "^3.1.8",
     "pinia": "^2.1.7",
     "vue": "^3.4.19",

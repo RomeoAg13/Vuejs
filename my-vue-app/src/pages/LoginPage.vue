@@ -10,12 +10,36 @@
             </div>
             <button type="submit">Login</button>
         </form>
-        <p v-if="errorMessage" class="error-message">Error</p>
+        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     </div>
-
 </template>
-<script>
 
+
+<script>
+import { auth } from '../utils/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
+export default {
+    data() {
+        return {
+            email: '',
+            password: '',
+            errorMessage: ''
+        };
+    },
+    methods: {
+        async login() {
+            try {
+                const userCreation = await signInWithEmailAndPassword(auth, this.email, this.password);
+                console.log("Utilisateur connecté avec succès:", userCreation.user);
+                this.$router.push('/');// envoyer user vers la home page avec le login reussit 
+            } catch (error) {
+                console.error("Erreur lors de la connexion:", error);
+                this.errorMessage = error.message;
+            }
+        }
+    }
+}
 </script>
 
 

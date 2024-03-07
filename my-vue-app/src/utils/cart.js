@@ -21,7 +21,7 @@ const cartPrice = () => {
     return totalPrice;
 };
 
-// if recupere les donnees du panier depuis le localStorage, deja present dans chaque const 
+// if recupere les donnees du panier depuis le localStorage, deja present dans chaque const
 
 if (localStorage.getItem('cartState')) {
     state.value.cart = JSON.parse(localStorage.getItem('cartState'));
@@ -39,7 +39,7 @@ const addToCart = (product) => {
         state.value.cart.push({ product, quantity: 1 });
     }
 
-    // Mettez à jour le localStorage et l'état du panier
+    // maj du local storage
     localStorage.setItem('cartState', JSON.stringify(state.value.cart));
 };
 
@@ -51,11 +51,12 @@ const removeFromCart = (product) => {
         cartProduct.quantity--;
 
         if (cartProduct.quantity === 0) {
-            // Si la quantité atteint 0, retirez le produit du panier
+
+            // Si quantité atteint 0, splice l'article du cart
             state.value.cart.splice(cartProductIndex, 1);
         }
 
-        // Mettez à jour le localStorage et l'état du panier
+        // maj du localStorage, donc du panier
         localStorage.setItem('cartState', JSON.stringify(state.value.cart));
     } else {
         console.log('Product does not exist in the cart.');

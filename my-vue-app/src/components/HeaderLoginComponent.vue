@@ -13,16 +13,11 @@
                 <li>
                     <a text="Cart" @click="onCartClick" />
                     <small class="cart-length-icon" v-if="cartLength() > 0">{{ cartLength() }}</small>
-                    <!--  si le cartlength > 0 c'est ok, et on affiche la longueur,donc le nombre d'articles dans le panier -->
-                </li>
-
-
-                <li>
-                    <a text="Login" @click="onLoginClick" />
+                    <!-- if la longueur est > 0 c'est ok  ensuite ca va afficher la longueur, donc le nombre d'article dans le cart-->
                 </li>
 
                 <li>
-                    <a text="Sign-Up" @click="onSignUpClick" />
+                    <a @click="logout">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -30,34 +25,60 @@
     <hr>
 </template>
 
-
 <script setup>
-import { cartGetter, cartLength } from "../utils/cart";
+import { cartLength } from "../utils/cart";
+
 import { useRouter } from "vue-router";
 
-const router = useRouter();
+import { getAuth, signOut } from "firebase/auth";
+
+const auth = getAuth(); // recupere auth depuis le firebase
+
+const router = useRouter(); // recupere instance du router
 
 
-
-// const qui envoie vers un / 
+// envoyer vers le /shop
 const onShopClick = () => {
     console.log("onShopClick");
     router.push("/shop");
 };
 
+//envoyer vers le /cart
 const onCartClick = () => {
     console.log("onCartClick");
     router.push("/cart");
-}
+};
+
+// envoyer vers le /login
 const onLoginClick = () => {
     console.log("onLoginClick");
-    router.push("/Login");
-}
+    router.push("/login");
+};
 
+// envoyer vers le /signup
 const onSignUpClick = () => {
     console.log("onSignUpClick");
-    router.push("/SignUp");
-}
+    router.push("/signup");
+};
+
+// Fonction pour le logout
+const logout = async () => {
+    try {
+        await signOut(auth); // Appel de la fonction signOut pour déconnecter l'utilisateur
+        console.log("Déconnexion réussie");
+        router.push("/login"); // envoyer  l'user vers la page de connexion après logout
+    } catch (error) {
+        console.error("Erreur lors de la déconnexion:", error);
+    }
+};
+
+
+
+
+
+
+
+
 </script>
 
 

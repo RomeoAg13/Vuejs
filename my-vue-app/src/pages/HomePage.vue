@@ -10,23 +10,34 @@
 
 <script setup>
 
+
 import { useRouter } from "vue-router";
 
 import { useProductStore } from "../utils/product-store";
 
 import ProductComponent from "../components/ProductComponent.vue";
-
+import { onMounted, onUnmounted } from "vue";
+let timer = null;
 const router = useRouter();
 
 const productStore = useProductStore();
 
 const products = productStore.products;
 
+onMounted(() => {
+  console.log('Home Page has mounted');
+});
+
+onUnmounted(() => {
+  console.log('Home Page is unmounted');
+});
+
 
 const onShopClick = () => {
   console.log("onShopClick");
   router.push("/shop");
 };
+
 
 </script>
 
